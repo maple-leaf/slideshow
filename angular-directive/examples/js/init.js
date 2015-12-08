@@ -11,8 +11,7 @@ directiveSlideShare.directive('ngVersion', function() {
   return {
       template: '<h2>Angular version: ' + angular.version.full + '</h2><a ng-href="{{pageLink}} target="_blank" style="margin-left: 100px">Open in new tab</a>',
     link: function(scope) {
-        console.log(window.location.href);
-        scope.pageLink = window.location;
+        scope.pageLink = window.location.href;
     }
   };
 })
