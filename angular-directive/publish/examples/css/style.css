@@ -1,0 +1,42 @@
+/*
+ * style.css
+ * Copyright (C) 2015 fengye
+ *
+ * Distributed under terms of the MIT license.
+ */
+
+body {
+    background: white;
+    color: black;
+}
+
+section>div {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+}
+section span {
+    margin: 0 5px;
+}
+
+h2 button {
+    margin-left: 100px;
+    font-size: 18px;
+    border: none;
+    background: #2371D2;
+    color: #fff;
+    box-shadow: 1px 1px #669014;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+p {
+    margin-top: 0;
+}
+
+section div strong {
+    color: goldenrod;
+}
+
+section div div strong {
+    color: #333;
+}
