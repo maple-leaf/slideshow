@@ -171,7 +171,6 @@ var base = location.protocol + '//' + location.host;
 var path = (location.pathname + '#').split('/').filter(function(v){
     return !!v;
 });
-path.pop();
 path = path.join('/');
 MixJS.config({
     baseURL: [ base, path, 'js'].join('/')+'/'
