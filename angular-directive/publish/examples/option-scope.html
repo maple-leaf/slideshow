@@ -30,14 +30,16 @@
                 <div>test in section: <input ng-model="test" type="text"></div>
                 <div transcludescope></div>
                 <p>test有值而test2没值</p>
-                <p>However isolated scope creates a new problem: if a transcluded DOM is a child of the widget isolated scope then it will not be able to bind to anything. For this reason the transcluded scope is a child of the original scope, before the widget created an isolated scope for its local variables. This makes the transcluded and widget isolated scope siblings.<a href="https://code.angularjs.org/1.3.7/docs/guide/compiler">原文底部倒数第三段话</a></p>
             </section>
             <section sec-title-isolate="scope: transclude" ng-init="test3='test3';title='xx'">
                 <div>test in section: <input ng-model="test" type="text"></div>
                 <div transcludescopeisolate></div>
                 <p>test有值而test2没值</p>
-                <p>However isolated scope creates a new problem: if a transcluded DOM is a child of the widget isolated scope then it will not be able to bind to anything. For this reason the transcluded scope is a child of the original scope, before the widget created an isolated scope for its local variables. This makes the transcluded and widget isolated scope siblings.<a href="https://code.angularjs.org/1.3.7/docs/guide/compiler">原文底部倒数第三段话</a></p>
             </section>
+            <p>However isolated scope creates a new problem: if a transcluded DOM is a child of the widget isolated scope then it will not be able to bind to anything. For this reason the transcluded scope is a child of the original scope, before the widget created an isolated scope for its local variables. This makes the transcluded and widget isolated scope siblings.<a href="https://code.angularjs.org/1.3.7/docs/guide/compiler">compiler原文底部倒数第三段话</a></p>
+            <p>Transclusion is used (often with ngTransclude) to insert the original contents of a directive's element into a specified place in the template of the directive. The benefit of transclusion, over simply moving the DOM elements manually, is that the transcluded content has access to the properties on the scope from which it was taken, even if the directive has isolated scope. See the Directives Guide.
+                <br>
+                This makes it possible for the widget to have private state for its template, while the transcluded content has access to its originating scope.<a href="https://docs.angularjs.org/api/ng/service/$compile#transclusion">$compiler的Transclusion第二段</a></p>
         </div>
         <div ng-show="codeVisible">
             <codes id="html"></codes>
