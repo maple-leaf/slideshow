@@ -16,7 +16,7 @@ transition: slide
 var base = document.createElement('base');
 base.href = location.origin;
 if (base.href.indexOf('github') !== 0) {
-base.href += '/slideshow/publish';
+base.href += 'slideshow/angular-directive/publish/';
 document.head.appendChild(base);
 } else {
 document.head.appendChild(base);
