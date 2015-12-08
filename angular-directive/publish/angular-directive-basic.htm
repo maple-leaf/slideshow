@@ -31,7 +31,7 @@
 var base = document.createElement('base');
 base.href = location.origin;
 if (base.href.indexOf('github') !== 0) {
-base.href += 'slideshow/angular-directive/publish';
+base.href += 'slideshow/angular-directive/publish/';
 document.head.appendChild(base);
 } else {
 document.head.appendChild(base);
@@ -172,6 +172,7 @@ var path = (location.pathname + '#').split('/').filter(function(v){
     return !!v;
 });
 path = path.join('/');
+path.pop();
 MixJS.config({
     baseURL: [ base, path, 'js'].join('/')+'/'
 });
