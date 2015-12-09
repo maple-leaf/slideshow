@@ -44,13 +44,22 @@ directiveSlideShare.directive('ngVersion', function() {
             if (attrs.id === "html") {
                 url = location.href;
             } else if (attrs.id === "js") {
-                url = location.href.replace(/html$/, 'js').replace(/examples/, 'examples/js');
+                url = [location.href.replace(/examples.*/, '/examples/js/init.js'), location.href.replace(/html$/, 'js').replace(/examples/, 'examples/js')];
             } else {
-                url = location.origin + '/examples/css/style.css';
+                url = location.href.replace(/examples.*/, '/examples/css/style.css');
             }
-           $http.get(url).success(function(data) {
-                scope.code = data;
-            });
+            if (angular.isArray(url)) {
+                scope.code = '';
+                url.forEach(function(u) {
+                    $http.get(u).success(function(data) {
+                        scope.code += data + '\n\n';
+                    });
+                });
+            } else {
+                $http.get(url).success(function(data) {
+                    scope.code = data;
+                });
+            }
             $timeout(function() {
                 hljs.highlightBlock(ele.children()[0]);
             });
