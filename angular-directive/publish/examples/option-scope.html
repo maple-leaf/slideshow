@@ -36,10 +36,16 @@
                 <div transcludescopeisolate></div>
                 <p>test有值而test2没值</p>
             </section>
-            <p>However isolated scope creates a new problem: if a transcluded DOM is a child of the widget isolated scope then it will not be able to bind to anything. For this reason the transcluded scope is a child of the original scope, before the widget created an isolated scope for its local variables. This makes the transcluded and widget isolated scope siblings.<a href="https://code.angularjs.org/1.3.7/docs/guide/compiler">compiler原文底部倒数第三段话</a></p>
-            <p>Transclusion is used (often with ngTransclude) to insert the original contents of a directive's element into a specified place in the template of the directive. The benefit of transclusion, over simply moving the DOM elements manually, is that the transcluded content has access to the properties on the scope from which it was taken, even if the directive has isolated scope. See the Directives Guide.
-                <br>
-                This makes it possible for the widget to have private state for its template, while the transcluded content has access to its originating scope.<a href="https://docs.angularjs.org/api/ng/service/$compile#transclusion">$compiler的Transclusion第二段</a></p>
+            <hr>
+            <h3>关于后面两个transclude问题</h3>
+            <p>这里的两个demo仔细观察会发现奇怪的现象，test2,test3的scope是不一样的。这里涉及到`transclude scope`, `directive scope`, `ng-init`。关于这个我目前也无法给出明确的解释，这个问题是我在制作这个demo时候发现的。有明白的大神望能在stackoverflow我的这个问题上给个答案<a href="http://stackoverflow.com/questions/34170208/wired-scope-of-ng-init-aside-custom-directive-using-different-scope-definition" target="_blank">wired scope of `ng-init` aside custom directive using different scope definition</a>,或者github上联系<a href="https://github.com/maple-leaf" target="_blank">我</a>，或者在github上这个<a href="https://github.com/maple-leaf/slideshow" target="_blank">repo</a>上发个issue。谢谢 :-)</p>
+            <h4>关于ng-init<a href="https://docs.angularjs.org/api/ng/directive/ngInit" target="_blank">angular doc about ng-init</a></h4>
+            <p>The ngInit directive allows you to evaluate an expression in the current scope.</p>
+            <p>WARNING: This directive can be abused to add unnecessary amounts of logic into your templates. There are only a few appropriate uses of ngInit, such as for aliasing special properties of ngRepeat, as seen in the demo below; and for injecting data via server side scripting. Besides these few cases, you should use controllers rather than ngInit to initialize values on a scope.</p>
+            <h4>关于transclude scope</h4>
+            <p>However isolated scope creates a new problem: if a transcluded DOM is a child of the widget isolated scope then it will not be able to bind to anything. For this reason the transcluded scope is a child of the original scope, before the widget created an isolated scope for its local variables. This makes the transcluded and widget isolated scope siblings.<a href="https://code.angularjs.org/1.3.7/docs/guide/compiler" target="_blank">compiler原文底部倒数第三段话</a></p>
+            <p>Transclusion is used (often with ngTransclude) to insert the original contents of a directive's element into a specified place in the template of the directive. The benefit of transclusion, over simply moving the DOM elements manually, is that the transcluded content has access to the properties on the scope from which it was taken, even if the directive has isolated scope. See the Directives Guide.  <br> This makes it possible for the widget to have private state for its template, while the transcluded content has access to its originating scope.<a href="https://docs.angularjs.org/api/ng/service/$compile#transclusion" target="_blank">$compiler的Transclusion第二段</a></p>
+            <p>这个是stackoverflow的一个相关问题一位大神的详细解答，<a href="http://stackoverflow.com/a/16705183/2326199" target="_blank">Confused about Angularjs transcluded and isolate scopes & bindings</a>
         </div>
         <div ng-show="codeVisible">
             <codes id="html"></codes>
