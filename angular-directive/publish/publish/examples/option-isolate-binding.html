@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/highlight.css">
+        <link rel="stylesheet" href="css/style.css" />
+        <meta charset="UTF-8">
+        <script src="js/highlight.js"></script>
+        <script src="js/angular.js"></script>
+        <script src="js/init.js"></script>
+        <script src="js/option-isolate-binding.js"></script>
+    </head>
+
+    <body ng-app="directiveSlideShare">
+        <h1 ng-version></h1>
+        <h2>Demo about `biding of isolate scope`<button ng-click="codeVisible=!codeVisible">{{ !codeVisible ? 'View Code' : 'Hide Code' }}</button></h2>
+        <div ng-hide="codeVisible" ng-controller="bindingCtrl">
+            <section sec-title="'='">
+                <div>test in section: <input ng-model="test" type="text"></div>
+                <div equal-sign d-test="test"></div>
+            </section>
+            <section sec-title="'@'">
+                <div>test in section: <input ng-model="test" type="text"></div>
+                <div at-sign d-test="{{test}}" d-test2="test"></div>
+            </section>
+            <section sec-title="'&'">
+                <div and-sign="getValue(test, happyFace)"></div>
+            </section>
+        </div>
+        <div ng-show="codeVisible">
+            <codes id="html"></codes>
+            <codes id="js"></codes>
+            <codes id="css"></codes>
+        </div>
+    </body>
+</html>
+

@@ -15,7 +15,7 @@ transition: slide
 <script>
 var base = document.createElement('base');
 base.href = location.origin;
-if (base.href.indexOf('github') !== 0) {
+if (base.href.indexOf('github') !== -1) {
 base.href += 'slideshow/angular-directive/publish/';
 document.head.appendChild(base);
 } else {
@@ -105,6 +105,13 @@ transclude设为true时，里面的内容会被放到模版里设置了 `ng-tran
 ======
 <iframe data-src="examples/option-scope.html" src="about:blank;"></iframe>
 =====
+###关于{}的三个绑定方式
+- "=": 双向绑定，directive内外均可修改,并都会得到反馈
+- "@": 单向绑定，directive只可读取不可修改. 外层的修改会反馈到directive.
+- "&": 方法绑定，指定directive执行的方法
+======
+<iframe data-src="examples/option-isolate-binding.html" src="about:blank;"></iframe>
+======
 ###option.link 
 	```
 	用来自定义DOM操作，事件,scope操作的函数，有五个参数： scope, element, attrs, ctrl, transcludeFn。常用前三个。

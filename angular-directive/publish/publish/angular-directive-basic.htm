@@ -30,7 +30,7 @@
 </style><script>
 var base = document.createElement('base');
 base.href = location.origin;
-if (base.href.indexOf('github') !== 0) {
+if (base.href.indexOf('github') !== -1) {
 base.href += 'slideshow/angular-directive/publish/';
 document.head.appendChild(base);
 } else {
@@ -115,6 +115,18 @@ transclude设为true时，里面的内容会被放到模版里设置了 `ng-tran
 </article></div>
 <div class="subSlide"><article>
 <iframe data-src="examples/option-scope.html" src="about:blank;"></iframe>
+</article></div>
+<div class="subSlide"><article>
+<h3>关于{}的三个绑定方式</h3>
+<ul>
+<li>&quot;=&quot;: 双向绑定，directive内外均可修改,并都会得到反馈</li>
+<li>&quot;@&quot;: 单向绑定，directive只可读取不可修改. 外层的修改会反馈到directive.</li>
+<li>&quot;&amp;&quot;: 方法绑定，指定directive执行的方法</li>
+</ul>
+
+</article></div>
+<div class="subSlide"><article>
+<iframe data-src="examples/option-isolate-binding.html" src="about:blank;"></iframe>
 </article></div>
 <div class="subSlide"><article>
 <h3>option.link</h3>
